@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -182,14 +181,8 @@ export default function MenuPage() {
                   {/* Dokumentasi Cover - Kosong untuk saat ini tapi disiapkan */}
                   {cat.docImage && (
                     <div className="cats__doc" style={{ position: 'relative', width: '100%', height: 'auto', aspectRatio: '16/9' }}>
-                      <Image 
-                        src={cat.docImage} 
-                        alt={`Dokumentasi ${cat.title}`} 
-                        fill
-                        unoptimized
-                        style={{ objectFit: 'cover' }}
-                        className="cats__doc-img" 
-                      />
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={cat.docImage} alt={`Dokumentasi ${cat.title}`} className="cats__doc-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
                   )}
 
@@ -199,16 +192,8 @@ export default function MenuPage() {
                       {cat.brochures.map((src, bIdx) => (
                         <article key={bIdx} className="bcard" onClick={() => setSelectedImage(src)}>
                           <div className="bcard__img-wrap">
-                            <Image 
-                              src={src} 
-                              alt={`Brosur ${cat.title} ${bIdx + 1}`} 
-                              width={800}
-                              height={1200}
-                              unoptimized
-                              sizes="(max-width: 640px) 100vw, 50vw"
-                              style={{ width: '100%', height: 'auto' }}
-                              className="bcard__img" 
-                            />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={src} alt={`Brosur ${cat.title} ${bIdx + 1}`} className="bcard__img" />
                             <div className="bcard__zoom-hint">
                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <circle cx="11" cy="11" r="8"></circle>
@@ -234,15 +219,8 @@ export default function MenuPage() {
           <div className="lightbox" onClick={() => setSelectedImage(null)} role="dialog" aria-modal="true">
             <button className="lightbox__close" aria-label="Tutup gambar">×</button>
             <div className="lightbox__content" onClick={(e) => e.stopPropagation()}>
-              <Image 
-                src={selectedImage} 
-                alt="Perbesar Gambar Brosur" 
-                fill
-                unoptimized
-                style={{ objectFit: 'contain' }}
-                sizes="100vw"
-                className="lightbox__img" 
-              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={selectedImage} alt="Perbesar Gambar Brosur" className="lightbox__img" />
             </div>
           </div>
         )}
@@ -506,8 +484,8 @@ export default function MenuPage() {
         }
         .lightbox__content {
           position: relative;
-          width: 90vw;
-          height: 90vh;
+          max-width: 90vw;
+          max-height: 90vh;
           cursor: default;
         }
         .lightbox__img {
