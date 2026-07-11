@@ -5,7 +5,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel)
 
-**Pandan Ayu Catering** adalah sebuah website profil bisnis (Company Profile / Landing Page) modern yang dibangun khusus untuk layanan katering yang berbasis di Sidoarjo, Jawa Timur. Website ini dirancang untuk mempermudah calon pelanggan melihat daftar menu, keunggulan, serta langsung melakukan pemesanan melalui integrasi WhatsApp.
+**Pandan Ayu Catering** adalah sebuah website profil bisnis (Company Profile / Landing Page) modern yang dibangun khusus untuk layanan katering yang berbasis di Sidoarjo, Jawa. Website ini dirancang untuk mempermudah calon pelanggan melihat daftar menu, keunggulan, serta langsung melakukan pemesanan melalui integrasi WhatsApp.
 
 🔗 **Live Demo:** [pandanayucatering.vercel.app](https://pandanayucatering.vercel.app)
 

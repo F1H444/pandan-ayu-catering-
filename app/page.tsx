@@ -49,7 +49,7 @@ function Hero() {
           </h1>
 
           <p className="hero__sub hero-anim">
-            Bikin acaramu makin berkesan dengan hidangan khas Jawa Timur dari Pandan Ayu. Rasanya juara, porsinya pas, dan pastinya bikin tamu ketagihan!
+            Bikin acaramu makin berkesan dengan hidangan khas Jawa dari Pandan Ayu. Rasanya juara, porsinya pas, dan pastinya bikin tamu ketagihan!
           </p>
 
           <div className="hero__cta hero-anim">
@@ -73,7 +73,7 @@ function Hero() {
           <div className="hero__stats hero-anim">
             {[
               { n: '500+', l: 'Acara Terlayani' },
-              { n: '10+',  l: 'Tahun Pengalaman' },
+              { n: '8+',  l: 'Tahun Pengalaman' },
               { n: '20+',  l: 'Pilihan Menu' },
             ].map(s => (
               <div key={s.l} className="hero__stat">
@@ -268,7 +268,7 @@ function About() {
     { 
       icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V22H6Z" strokeLinecap="round" strokeLinejoin="round"/></svg>, 
       t: 'Koki Berpengalaman',  
-      d: 'Tangan-tangan ahli yang paham betul rahasia kelezatan masakan asli Jawa Timur.' 
+      d: 'Tangan-tangan ahli yang paham betul rahasia kelezatan masakan asli Jawa.' 
     },
     { 
       icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round"/></svg>, 
@@ -294,12 +294,16 @@ function About() {
               Dimasak Penuh Cinta,<br/>Disajikan<br/>Sepenuh Hati
             </h2>
             <p className="reveal d2">
-              Di Pandan Ayu Catering, kami percaya bahwa makanan enak bisa bikin suasana acara jadi lebih hangat dan bahagia. Itulah kenapa kami selalu totalitas meracik bumbu khas Jawa Timur andalan kami.
+              Di Pandan Ayu Catering, kami percaya bahwa makanan enak bisa bikin suasana acara jadi lebih hangat dan bahagia. Itulah kenapa kami selalu totalitas meracik bumbu khas Jawa andalan kami.
             </p>
             <p className="reveal d3">
               Dari dapur kami di Sepande, Sidoarjo, kami siap nemenin momen pentingmu—mulai dari kumpul keluarga, tasyakuran, sampai resepsi pernikahan impianmu.
             </p>
-            <Link href="/menu" className="btn btn-primary reveal d4" style={{width:'fit-content', marginTop:'1.5rem'}} id="about-menu-btn">
+            <p className="reveal d4" style={{ fontSize: '.95rem', color: 'var(--c-text-2)', background: 'var(--c-bg-2)', padding: '1rem', borderRadius: 'var(--r-md)', borderLeft: '4px solid var(--c-accent)' }}>
+              <strong>Kualitas Terpercaya</strong><br/>
+              Selama 8 tahun kami menjadi catering langganan Pendopo Bupati, Pemkab, Instansi Pemerintah, dll. Owner kami juga merupakan Chef bersertifikat nasional & Anggota ICA (Indonesian Chef Association).
+            </p>
+            <Link href="/menu" className="btn btn-primary reveal d5" style={{width:'fit-content', marginTop:'1.5rem'}} id="about-menu-btn">
               Intip Menu Kami
             </Link>
           </div>
@@ -704,7 +708,7 @@ function Testimonials() {
       event: 'Arisan · Sepande',
       rating: 5,
       avatar: 'D',
-      text: 'Sudah langganan di sini. Menu lengkap, rasa tidak pernah mengecewakan. Sambal petisnya khas Jawa Timur banget. Pengiriman selalu on time dan packaging rapi.',
+      text: 'Sudah langganan di sini. Menu lengkap, rasa tidak pernah mengecewakan. Sambal petisnya khas Jawa banget. Pengiriman selalu on time dan packaging rapi.',
       via: 'Google Maps',
     },
     {

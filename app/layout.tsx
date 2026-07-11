@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Pandan Ayu Catering",
   },
   description:
-    "Pandan Ayu Catering menyediakan nasi box, nasi kotak, dan prasmanan dengan cita rasa autentik Jawa Timur. Melayani acara pernikahan, hajatan, arisan, dan kantor di Sidoarjo dan sekitarnya. Pesan langsung via WhatsApp!",
+    "Pandan Ayu Catering menyediakan nasi box, nasi kotak, dan prasmanan dengan cita rasa autentik Jawa. Melayani acara pernikahan, hajatan, arisan, dan kantor di Sidoarjo dan sekitarnya. Pesan langsung via WhatsApp!",
   keywords: [
     "catering sidoarjo",
     "nasi box sidoarjo",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "Pandan Ayu Catering",
     title: "Pandan Ayu Catering – Catering Nasi Box & Prasmanan Sidoarjo",
     description:
-      "Catering autentik Jawa Timur untuk acara pernikahan, hajatan, dan kantor di Sidoarjo. Pesan via WhatsApp!",
+      "Catering autentik Jawa untuk acara pernikahan, hajatan, dan kantor di Sidoarjo. Pesan via WhatsApp!",
     images: [
       {
         url: "/og-image.jpg",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pandan Ayu Catering – Catering Nasi Box Sidoarjo",
     description:
-      "Catering autentik Jawa Timur untuk hajatan & acara di Sidoarjo. Pesan via WhatsApp!",
+      "Catering autentik Jawa untuk hajatan & acara di Sidoarjo. Pesan via WhatsApp!",
     images: ["/og-image.jpg"],
   },
   alternates: {
@@ -89,7 +89,7 @@ export default function RootLayout({
     "@type": "FoodEstablishment",
     name: "Pandan Ayu Catering",
     description:
-      "Catering nasi box, nasi kotak, dan prasmanan autentik Jawa Timur di Sidoarjo",
+      "Catering nasi box, nasi kotak, dan prasmanan autentik Jawa di Sidoarjo",
     url: "https://pandanayucatering.vercel.app",
     telephone: "+6282232172646",
     address: {

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Menu Pandan Ayu Catering – Nasi Box & Sambal Sidoarjo',
     description:
-      '20+ menu nasi box autentik Jawa Timur. Nasi Putih, Nasi Liwet, Sambal Terasi, Sambal Geprek, dan banyak lagi. Pesan via WhatsApp!',
+      '20+ menu nasi box autentik Jawa. Nasi Putih, Nasi Liwet, Sambal Terasi, Sambal Geprek, dan banyak lagi. Pesan via WhatsApp!',
     url: 'https://pandanayucatering.vercel.app/menu',
   },
   alternates: {

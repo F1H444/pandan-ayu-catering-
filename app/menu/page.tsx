@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -10,6 +11,7 @@ const MENU_CATEGORIES = [
   {
     id: 'nasi-kotak',
     title: 'Nasi Kotak',
+    desc: 'HARGA start 24k. Customer bebas pilih menu sesuai budget. Isi menu bisa diatur. Melayani pemesanan dadakan ( H-1 ) 1.000 box sekali kirim.',
     docImage: null, // Siapkan tempat untuk foto dokumentasi nanti
     brochures: [
       '/images/menu/nasi kotak/1. olahan.jpg',
@@ -24,20 +26,33 @@ const MENU_CATEGORIES = [
     id: 'tumpeng',
     title: 'Tumpeng',
     docImage: null,
-    brochures: [] // Menunggu foto dari pemilik
+    brochures: [
+      '/images/menu/tumpeng/tumpeng kuning.png',
+      '/images/menu/tumpeng/tumpeng putih.png',
+    ]
   },
   {
     id: 'snack-box',
     title: 'Snack Box',
     docImage: null,
-    brochures: [] // Menunggu foto dari pemilik
+    brochures: [
+      '/images/menu/snack box/snack box.png',
+    ]
+  },
+  {
+    id: 'paket-tradisional',
+    title: 'Paket Tradisional',
+    docImage: null,
+    brochures: [
+      '/images/menu/paket tradisional/paket tradisional.jpeg',
+    ]
   },
   {
     id: 'aqiqah',
     title: 'Aqiqah',
     docImage: null,
     brochures: [
-      '/images/menu/aqiqah/aqiqah.jpeg',
+      '/images/menu/aqiqah/paket aqiqah.png',
     ]
   },
   {
@@ -149,19 +164,32 @@ export default function MenuPage() {
 
         {/* ── Categories Sections ── */}
         <section className="cats">
-          <div className="container">
+          <div className="container" style={{ maxWidth: '1600px' }}>
             {MENU_CATEGORIES.map((cat, idx) => {
               if (cat.brochures.length === 0 && !cat.docImage) return null; // Sembunyikan kategori yang kosong
               
               return (
                 <div key={cat.id} id={cat.id} className="cats__group">
-                  <h2 className="cats__title">{cat.title}</h2>
+                  <h2 className="cats__title" style={{ marginBottom: cat.desc ? '0.5rem' : '2rem' }}>{cat.title}</h2>
+                  
+                  {/* Category Description */}
+                  {(cat as any).desc && (
+                    <p className="cats__desc" style={{ marginBottom: '2rem', color: 'var(--c-text-2)', maxWidth: '600px', lineHeight: '1.6' }}>
+                      {(cat as any).desc}
+                    </p>
+                  )}
                   
                   {/* Dokumentasi Cover - Kosong untuk saat ini tapi disiapkan */}
                   {cat.docImage && (
-                    <div className="cats__doc">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={cat.docImage} alt={`Dokumentasi ${cat.title}`} className="cats__doc-img" loading="lazy" />
+                    <div className="cats__doc" style={{ position: 'relative', width: '100%', height: 'auto', aspectRatio: '16/9' }}>
+                      <Image 
+                        src={cat.docImage} 
+                        alt={`Dokumentasi ${cat.title}`} 
+                        fill
+                        unoptimized
+                        style={{ objectFit: 'cover' }}
+                        className="cats__doc-img" 
+                      />
                     </div>
                   )}
 
@@ -171,8 +199,16 @@ export default function MenuPage() {
                       {cat.brochures.map((src, bIdx) => (
                         <article key={bIdx} className="bcard" onClick={() => setSelectedImage(src)}>
                           <div className="bcard__img-wrap">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={src} alt={`Brosur ${cat.title} ${bIdx + 1}`} loading="lazy" className="bcard__img" />
+                            <Image 
+                              src={src} 
+                              alt={`Brosur ${cat.title} ${bIdx + 1}`} 
+                              width={800}
+                              height={1200}
+                              unoptimized
+                              sizes="(max-width: 640px) 100vw, 50vw"
+                              style={{ width: '100%', height: 'auto' }}
+                              className="bcard__img" 
+                            />
                             <div className="bcard__zoom-hint">
                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <circle cx="11" cy="11" r="8"></circle>
@@ -198,8 +234,15 @@ export default function MenuPage() {
           <div className="lightbox" onClick={() => setSelectedImage(null)} role="dialog" aria-modal="true">
             <button className="lightbox__close" aria-label="Tutup gambar">×</button>
             <div className="lightbox__content" onClick={(e) => e.stopPropagation()}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={selectedImage} alt="Perbesar Gambar Brosur" className="lightbox__img" />
+              <Image 
+                src={selectedImage} 
+                alt="Perbesar Gambar Brosur" 
+                fill
+                unoptimized
+                style={{ objectFit: 'contain' }}
+                sizes="100vw"
+                className="lightbox__img" 
+              />
             </div>
           </div>
         )}
@@ -358,23 +401,20 @@ export default function MenuPage() {
           max-height: 500px; /* Limit height so it doesn't take up the whole screen on desktop */
         }
 
-        /* ── Brochures Grid (Masonry Style) ── */
+        /* ── Brochures Grid ── */
         .bgrid {
-          column-count: 1;
-          column-gap: 2rem;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2rem;
           width: 100%;
         }
-        
+
         @media (min-width: 640px) {
-          .bgrid { column-count: 2; }
+          .bgrid { grid-template-columns: 1fr 1fr; }
         }
 
-        /* Dihapus kolom 3 agar gambar di desktop tidak terlalu kecil */
-
         .bcard {
-          break-inside: avoid;
-          page-break-inside: avoid;
-          margin-bottom: 2rem;
+          margin-bottom: 0; /* Remove margin since gap handles it */
           background: var(--c-bg-2);
           border: 1px solid var(--c-border);
           border-radius: var(--r-xl);
@@ -466,8 +506,8 @@ export default function MenuPage() {
         }
         .lightbox__content {
           position: relative;
-          max-width: 90vw;
-          max-height: 90vh;
+          width: 90vw;
+          height: 90vh;
           cursor: default;
         }
         .lightbox__img {
