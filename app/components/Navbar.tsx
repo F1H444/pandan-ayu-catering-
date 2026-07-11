@@ -98,7 +98,6 @@ export default function Navbar() {
                 className={isActive(href) ? 'active' : ''}
               >
                 {label}
-                <span className="line" aria-hidden="true" />
               </Link>
             ))}
           </nav>
@@ -224,23 +223,17 @@ export default function Navbar() {
         .nav__inner {
           position: relative;
           z-index: 1;
-          max-width: 1160px;
+          max-width: 1200px;
           margin: 0 auto;
           padding: 0 1.5rem;
           height: 100%;
           display: flex;
           justify-content: space-between;
           align-items: center;
-        }
-        @media (min-width: 992px) {
-          .nav__inner {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 3rem;
-          }
+          gap: 1rem;
         }
         @media (min-width: 1200px) {
-          .nav__inner { padding: 0 2.5rem; }
+          .nav__inner { padding: 0 2.5rem; gap: 2rem; }
         }
 
         /* ── Logo ── */
@@ -289,7 +282,7 @@ export default function Navbar() {
           display: none;
           align-items: center;
           justify-content: center;
-          gap: 0.5rem;
+          gap: 0.25rem;
         }
         @media (min-width: 992px) {
           .nav__links { display: flex; }
@@ -297,41 +290,23 @@ export default function Navbar() {
 
         .nav__links > :global(a) {
           position: relative;
-          padding: 0.5rem 1.25rem;
-          font-size: 0.9375rem;
+          padding: 0.45rem 0.85rem;
+          font-size: 0.875rem;
           font-weight: 500;
           color: var(--c-text-3);
           text-decoration: none;
           border-radius: 100px;
-          transition: color 180ms ease, background 180ms ease;
+          transition: color 200ms ease, background-color 200ms ease;
           white-space: nowrap;
-          letter-spacing: 0.01em;
+          letter-spacing: 0.02em;
         }
         .nav__links > :global(a:hover) {
           color: var(--c-text-1);
-          background: rgba(255,255,255,0.05);
+          background-color: rgba(255,255,255,0.06);
         }
         .nav__links > :global(a.active) {
           color: var(--c-text-1);
-          background: rgba(230,124,30,0.08);
-        }
-
-        /* underline indicator */
-        .nav__links :global(.line) {
-          position: absolute;
-          bottom: 4px;
-          left: 1.125rem;
-          right: 1.125rem;
-          height: 1.5px;
-          background: var(--c-accent);
-          border-radius: 2px;
-          transform: scaleX(0);
-          transform-origin: center;
-          transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .nav__links > :global(a:hover .line),
-        .nav__links > :global(a.active .line) {
-          transform: scaleX(1);
+          background-color: rgba(230,124,30,0.12);
         }
 
         /* ── Right side ── */
