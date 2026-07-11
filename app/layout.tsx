@@ -1,0 +1,149 @@
+import type { Metadata } from "next";
+import { Lora, Outfit } from "next/font/google";
+import StyledJsxRegistry from "./registry";
+import "./globals.css";
+
+const lora = Lora({
+  variable: "--font-lora",
+  subsets: ["latin"],
+  display: "block",
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  display: "block",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://pandanayucatering.vercel.app"),
+  title: {
+    default: "Pandan Ayu Catering – Catering Nasi Box & Prasmanan Sidoarjo",
+    template: "%s | Pandan Ayu Catering",
+  },
+  description:
+    "Pandan Ayu Catering menyediakan nasi box, nasi kotak, dan prasmanan dengan cita rasa autentik Jawa Timur. Melayani acara pernikahan, hajatan, arisan, dan kantor di Sidoarjo dan sekitarnya. Pesan langsung via WhatsApp!",
+  keywords: [
+    "catering sidoarjo",
+    "nasi box sidoarjo",
+    "nasi kotak sidoarjo",
+    "catering pernikahan sidoarjo",
+    "prasmanan sidoarjo",
+    "catering murah sidoarjo",
+    "catering candi sidoarjo",
+    "pandan ayu catering",
+    "catering jawa timur",
+    "catering hajatan sidoarjo",
+  ],
+  authors: [{ name: "Pandan Ayu Catering" }],
+  creator: "Pandan Ayu Catering",
+  publisher: "Pandan Ayu Catering",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: "https://pandanayucatering.vercel.app",
+    siteName: "Pandan Ayu Catering",
+    title: "Pandan Ayu Catering – Catering Nasi Box & Prasmanan Sidoarjo",
+    description:
+      "Catering autentik Jawa Timur untuk acara pernikahan, hajatan, dan kantor di Sidoarjo. Pesan via WhatsApp!",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Pandan Ayu Catering - Nasi Box & Prasmanan Sidoarjo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pandan Ayu Catering – Catering Nasi Box Sidoarjo",
+    description:
+      "Catering autentik Jawa Timur untuk hajatan & acara di Sidoarjo. Pesan via WhatsApp!",
+    images: ["/og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://pandanayucatering.vercel.app",
+  },
+  category: "food",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    name: "Pandan Ayu Catering",
+    description:
+      "Catering nasi box, nasi kotak, dan prasmanan autentik Jawa Timur di Sidoarjo",
+    url: "https://pandanayucatering.vercel.app",
+    telephone: "+6282232172646",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Jl. Raya Sepande, Krajan, Sepande",
+      addressLocality: "Kec. Candi",
+      addressRegion: "Kabupaten Sidoarjo",
+      postalCode: "61271",
+      addressCountry: "ID",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -7.4478,
+      longitude: 112.7376,
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "10:00",
+      closes: "17:00",
+    },
+    servesCuisine: ["Indonesian", "Javanese"],
+    priceRange: "$$",
+    hasMenu: "https://pandanayucatering.vercel.app/menu",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+6282232172646",
+      contactType: "customer service",
+      availableLanguage: "Indonesian",
+    },
+  };
+
+  return (
+    <html
+      lang="id"
+      className={`${lora.variable} ${outfit.variable}`}
+    >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body>
+        <StyledJsxRegistry>{children}</StyledJsxRegistry>
+      </body>
+    </html>
+  );
+}
