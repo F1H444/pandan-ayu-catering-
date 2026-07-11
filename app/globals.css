@@ -191,20 +191,20 @@ p  { color: var(--c-text-2); line-height: 1.75; }
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .55s var(--ease), transform .55s var(--ease);
+  opacity: 1;
+  transform: translateY(0);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-scale { opacity:0; transform:scale(.93); transition: opacity .5s var(--ease), transform .5s var(--ease); }
-.reveal-scale.visible { opacity:1; transform:scale(1); }
+.reveal-scale { opacity: 1; transform: scale(1); }
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
 
-.d1 { transition-delay:  80ms; }
-.d2 { transition-delay: 160ms; }
-.d3 { transition-delay: 240ms; }
-.d4 { transition-delay: 320ms; }
-.d5 { transition-delay: 400ms; }
-.d6 { transition-delay: 480ms; }
+/* Transisi delay dinonaktifkan karena animasi scroll dimatikan */
+.d1 { }
+.d2 { }
+.d3 { }
+.d4 { }
+.d5 { }
+.d6 { }
 
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 5px; }

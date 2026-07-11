@@ -82,6 +82,18 @@ const MENU_CATEGORIES = [
       '/images/menu/gubugan/gubugan.jpeg',
     ]
   },
+  {
+    id: 'nasi-tampah',
+    title: 'Nasi Tampah',
+    docImage: null,
+    brochures: []
+  },
+  {
+    id: 'simple-box',
+    title: 'Simple Box',
+    docImage: null,
+    brochures: []
+  }
 ];
 
 export default function MenuPage() {
@@ -165,48 +177,56 @@ export default function MenuPage() {
         <section className="cats">
           <div className="container" style={{ maxWidth: '1600px' }}>
             {MENU_CATEGORIES.map((cat, idx) => {
-              if (cat.brochures.length === 0 && !cat.docImage) return null; // Sembunyikan kategori yang kosong
+              const isEmpty = cat.brochures.length === 0 && !cat.docImage;
               
               return (
-                <div key={cat.id} id={cat.id} className="cats__group">
-                  <h2 className="cats__title" style={{ marginBottom: cat.desc ? '0.5rem' : '2rem' }}>{cat.title}</h2>
-                  
-                  {/* Category Description */}
-                  {(cat as any).desc && (
+                <div key={cat.id} id={cat.id} className="cats__group" style={{ scrollMarginTop: '100px' }}>
+                  <div className="cats__head reveal" style={{ marginBottom: cat.desc ? '0.5rem' : '2rem' }}>
+                    <h2 className="cats__title">{cat.title}</h2>
+                  </div>
+                  {cat.desc && (
                     <p className="cats__desc" style={{ marginBottom: '2rem', color: 'var(--c-text-2)', maxWidth: '600px', lineHeight: '1.6' }}>
-                      {(cat as any).desc}
+                      {cat.desc}
                     </p>
                   )}
-                  
-                  {/* Dokumentasi Cover - Kosong untuk saat ini tapi disiapkan */}
-                  {cat.docImage && (
-                    <div className="cats__doc" style={{ position: 'relative', width: '100%', height: 'auto', aspectRatio: '16/9' }}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={cat.docImage} alt={`Dokumentasi ${cat.title}`} className="cats__doc-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    </div>
-                  )}
 
-                  {/* Brosur Images */}
-                  {cat.brochures.length > 0 && (
-                    <div className="bgrid">
-                      {cat.brochures.map((src, bIdx) => (
-                        <article key={bIdx} className="bcard" onClick={() => setSelectedImage(src)}>
-                          <div className="bcard__img-wrap">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={src} alt={`Brosur ${cat.title} ${bIdx + 1}`} className="bcard__img" />
-                            <div className="bcard__zoom-hint">
-                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                <line x1="11" y1="8" x2="11" y2="14"></line>
-                                <line x1="8" y1="11" x2="14" y2="11"></line>
-                              </svg>
-                              <span>Perbesar</span>
-                            </div>
-                          </div>
-                        </article>
-                      ))}
+                  {isEmpty ? (
+                    <div style={{ padding: '3rem', textAlign: 'center', background: 'var(--c-bg-2)', borderRadius: 'var(--r-xl)', border: '1px dashed var(--c-border-2)', color: 'var(--c-text-3)' }}>
+                      <i>Brosur / Gambar Menu sedang disiapkan...</i>
                     </div>
+                  ) : (
+                    <>
+                      {/* Dokumentasi Cover - Kosong untuk saat ini tapi disiapkan */}
+                      {cat.docImage && (
+                        <div className="cats__doc" style={{ position: 'relative', width: '100%', height: 'auto', aspectRatio: '16/9' }}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={cat.docImage} alt={`Dokumentasi ${cat.title}`} className="cats__doc-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        </div>
+                      )}
+
+                      {/* Brosur Images */}
+                      {cat.brochures.length > 0 && (
+                        <div className="bgrid">
+                          {cat.brochures.map((src, bIdx) => (
+                            <article key={bIdx} className="bcard" onClick={() => setSelectedImage(src)}>
+                              <div className="bcard__img-wrap">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img src={src} alt={`Brosur ${cat.title} ${bIdx + 1}`} className="bcard__img" />
+                                <div className="bcard__zoom-hint">
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                                  </svg>
+                                  <span>Perbesar</span>
+                                </div>
+                              </div>
+                            </article>
+                          ))}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               );

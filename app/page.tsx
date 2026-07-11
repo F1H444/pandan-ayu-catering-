@@ -290,8 +290,8 @@ function About() {
           {/* Text */}
           <div className="about__text">
             <span className="sec-label reveal">Kenalan Yuk!</span>
-            <h2 id="about-h2" className="reveal d1">
-              Dimasak Penuh Cinta,<br/>Disajikan<br/>Sepenuh Hati
+            <h2 className="about__title reveal d2">
+              Dimasak Penuh Cinta,<br/>Disajikan Sepenuh Hati
             </h2>
             <p className="reveal d2">
               Di Pandan Ayu Catering, kami percaya bahwa makanan enak bisa bikin suasana acara jadi lebih hangat dan bahagia. Itulah kenapa kami selalu totalitas meracik bumbu khas Jawa andalan kami.
@@ -537,16 +537,16 @@ function MenuPreview() {
   const ref = useReveal();
 
   const cats = [
-    { 
-      emoji: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 13a10 10 0 0 1-20 0" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 13h20" strokeLinecap="round" strokeLinejoin="round"/><path d="M8 8v-3" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 9V4" strokeLinecap="round" strokeLinejoin="round"/><path d="M16 8v-3" strokeLinecap="round" strokeLinejoin="round"/></svg>, 
-      t: 'Olahan Nasi Spesial',   
-      d: 'Mulai dari Nasi Uduk gurih sampai Nasi Liwet sedap, semua ada!', n: 10 
-    },
-    { 
-      emoji: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" strokeLinecap="round" strokeLinejoin="round"/></svg>, 
-      t: 'Sambal Khas Jatim', 
-      d: 'Pilihan sambal mantap yang pedasnya bikin nagih banget!', n: 10 
-    },
+    { id: 'nasi-kotak', t: 'Nasi Kotak', d: 'Menu fleksibel dan ekonomis, bisa disesuaikan dengan budget acaramu.' },
+    { id: 'tumpeng', t: 'Tumpeng', d: 'Tumpeng spesial yang autentik untuk berbagai acara tasyakuran.' },
+    { id: 'snack-box', t: 'Snack Box', d: 'Aneka kue dan jajanan tradisional enak untuk pendamping acara.' },
+    { id: 'paket-tradisional', t: 'Paket Tradisional', d: 'Cita rasa khas nusantara untuk sajian hidangan spesialmu.' },
+    { id: 'aqiqah', t: 'Aqiqah', d: 'Paket aqiqah praktis, lezat dan disembelih sesuai syariat.' },
+    { id: 'prasmanan', t: 'Prasmanan', d: 'Layanan prasmanan lengkap untuk hajatan rumah & acara kantor.' },
+    { id: 'wedding', t: 'Paket Wedding', d: 'Pilihan katering elegan nan mewah untuk resepsi pernikahan impian.' },
+    { id: 'gubugan', t: 'Gubugan', d: 'Aneka pondokan gubugan sedap yang akan melengkapi acaramu.' },
+    { id: 'nasi-tampah', t: 'Nasi Tampah', d: 'Sajian kebersamaan ala tradisional dalam tampah yang hangat.' },
+    { id: 'simple-box', t: 'Simple Box', d: 'Pilihan boks hemat dan praktis untuk kebutuhan serba cepat.' },
   ];
 
   return (
@@ -567,17 +567,13 @@ function MenuPreview() {
 
         <div className="mpreview__cards">
           {cats.map((c, i) => (
-            <div key={c.t} className={`mpreview__card reveal-scale d${i + 1}`}>
-              <span className="mpreview__cat-emoji" aria-hidden="true">{c.emoji}</span>
-              <div className="mpreview__card-body">
-                <div className="mpreview__count">{c.n} Pilihan</div>
-                <h3>{c.t}</h3>
-                <p>{c.d}</p>
+            <Link href={`/menu#${c.id}`} key={c.id} className={`mpreview__card reveal-scale d${(i % 5) + 1}`}>
+              <h3 style={{ margin: '0 0 1rem 0', fontSize: '1.25rem' }}>{c.t}</h3>
+              <p style={{ fontSize: '.9rem', color: 'var(--c-text-2)', lineHeight: '1.6', margin: 0, flex: 1 }}>{c.d}</p>
+              <div style={{ marginTop: '1.5rem', fontSize: '.875rem', fontWeight: 600, color: 'var(--c-accent)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                Lihat Brosur <span style={{fontSize: '1rem'}}>→</span>
               </div>
-              <Link href="/menu" className="btn btn-primary mpreview__card-btn" id={`mpreview-btn-${i}`}>
-                Pesan Sekarang
-              </Link>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -609,40 +605,38 @@ function MenuPreview() {
           display: grid;
           grid-template-columns: 1fr;
           gap: 1.25rem;
+          width: 100%;
         }
         @media (min-width: 640px) {
-          .mpreview__cards { grid-template-columns: 1fr 1fr; }
+          .mpreview__cards { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+          .mpreview__cards { grid-template-columns: repeat(4, 1fr); }
         }
 
-        .mpreview__card {
-          background: var(--c-bg-2);
-          border: 1px solid var(--c-border);
+        :global(.mpreview__card) {
+          background: #1e160c;
+          border: 1px solid rgba(160, 100, 30, 0.35);
           border-radius: var(--r-xl);
-          padding: 2rem;
+          padding: 1.5rem;
           display: flex;
           flex-direction: column;
-          gap: 1.25rem;
-          transition: border-color var(--dur-base), transform var(--dur-base), box-shadow var(--dur-base);
+          text-decoration: none;
+          transition: border-color var(--dur-base), transform var(--dur-base), box-shadow var(--dur-base), background var(--dur-base);
         }
-        .mpreview__card:hover {
+        :global(.mpreview__card:hover) {
           border-color: var(--c-orange-5);
           transform: translateY(-5px);
-          box-shadow: var(--sh-acc);
+          box-shadow: 0 12px 32px rgba(230,124,30,0.15);
+          background: #251b10;
         }
 
-        .mpreview__cat-emoji {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 44px;
-          height: 44px;
-          border-radius: 10px;
-          background: rgba(230, 124, 30, 0.1);
-          color: var(--c-accent);
-          flex-shrink: 0;
-          animation: float 3s ease-in-out infinite;
+        :global(.mpreview__card h3) {
+          transition: color var(--dur-fast);
         }
-        .mpreview__card:nth-child(2) .mpreview__cat-emoji { animation-delay: 1s; }
+        :global(.mpreview__card:hover h3) {
+          color: var(--c-accent);
+        }
 
         .mpreview__card-body { flex: 1; }
         .mpreview__count {
