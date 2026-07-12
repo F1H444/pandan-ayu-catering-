@@ -2,8 +2,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import MenuClient from './MenuClient';
 
-export const revalidate = 60; // Incremental Static Regeneration (ISR): Cache di-update setiap 1 menit
-
+export const dynamic = 'force-dynamic';
+export const revalidate = 0; // Matikan cache agar selalu realtime mengikuti Google Drive
 const BASE_DESCRIPTIONS: Record<string, string> = {
   'nasi-kotak': 'HARGA start 24k. Customer bebas pilih menu sesuai budget. Isi menu bisa diatur. Melayani pemesanan dadakan ( H-1 ) 1.000 box sekali kirim.',
 };
@@ -12,7 +12,7 @@ async function fetchGoogleDriveFolders(apiKey: string, mainFolderId: string) {
   try {
     const query = `'${mainFolderId}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`;
     const res = await fetch(`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(query)}&key=${apiKey}&fields=files(id,name,description)&orderBy=name`, {
-      next: { revalidate: 60 }
+      cache: 'no-store'
     });
     if (!res.ok) {
       console.error("DRIVE API ERROR:", await res.text());
@@ -30,7 +30,7 @@ async function fetchImagesInFolder(apiKey: string, folderId: string) {
   try {
     const query = `'${folderId}' in parents and mimeType contains 'image/' and trashed=false`;
     const res = await fetch(`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(query)}&key=${apiKey}&fields=files(id,name)&orderBy=name`, {
-      next: { revalidate: 60 }
+      cache: 'no-store'
     });
     if (!res.ok) {
       console.error("DRIVE API IMAGES ERROR:", await res.text());
