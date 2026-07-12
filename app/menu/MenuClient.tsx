@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const WA = '6282232172646';
 
@@ -114,8 +115,16 @@ export default function MenuClient({ categories }: { categories: MenuCategory[] 
                       {/* Dokumentasi Cover */}
                       {cat.docImage && (
                         <div className="cats__doc" style={{ position: 'relative', width: '100%', height: 'auto', aspectRatio: '16/9' }}>
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={cat.docImage} alt={`Dokumentasi ${cat.title}`} loading="lazy" decoding="async" className="cats__doc-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                          <Image 
+                            src={cat.docImage} 
+                            alt={`Dokumentasi ${cat.title}`} 
+                            width={1280} 
+                            height={720} 
+                            sizes="(max-width: 768px) 100vw, 1200px" 
+                            style={{ width: '100%', height: 'auto', objectFit: 'cover' }} 
+                            className="cats__doc-img" 
+                            priority={idx === 0} 
+                          />
                         </div>
                       )}
 
@@ -125,8 +134,16 @@ export default function MenuClient({ categories }: { categories: MenuCategory[] 
                           {cat.brochures.map((src, bIdx) => (
                             <article key={bIdx} className="bcard" onClick={() => setSelectedImage(src)}>
                               <div className="bcard__img-wrap">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src={src} alt={`Brosur ${cat.title} ${bIdx + 1}`} loading="lazy" decoding="async" className="bcard__img" />
+                                <Image 
+                                  src={src} 
+                                  alt={`Brosur ${cat.title} ${bIdx + 1}`} 
+                                  width={1000} 
+                                  height={1414} 
+                                  sizes="(max-width: 768px) 100vw, 450px" 
+                                  style={{ width: '100%', height: 'auto', display: 'block' }} 
+                                  className="bcard__img" 
+                                  priority={idx === 0 && bIdx < 2} 
+                                />
                                 <div className="bcard__zoom-hint">
                                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <circle cx="11" cy="11" r="8"></circle>
@@ -154,8 +171,15 @@ export default function MenuClient({ categories }: { categories: MenuCategory[] 
           <div className="lightbox" onClick={() => setSelectedImage(null)} role="dialog" aria-modal="true">
             <button className="lightbox__close" aria-label="Tutup gambar">×</button>
             <div className="lightbox__content" onClick={(e) => e.stopPropagation()}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={selectedImage} alt="Perbesar Gambar Brosur" className="lightbox__img" />
+              <Image 
+                src={selectedImage} 
+                alt="Perbesar Gambar Brosur" 
+                width={1000} 
+                height={1414} 
+                style={{ width: 'auto', height: '90vh', maxWidth: '100%', objectFit: 'contain' }} 
+                className="lightbox__img" 
+                unoptimized 
+              />
             </div>
           </div>
         )}

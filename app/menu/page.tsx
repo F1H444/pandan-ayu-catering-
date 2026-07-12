@@ -38,7 +38,7 @@ async function fetchImagesInFolder(apiKey: string, folderId: string) {
     }
     const data = await res.json();
     
-    return (data.files || []).map((file: any) => `/api/image?id=${file.id}&v=2`);
+    return (data.files || []).map((file: any) => `https://drive.google.com/thumbnail?id=${file.id}&sz=w1000`);
   } catch (error) {
     console.error(`Error fetching images in folder ${folderId}:`, error);
     return [];
