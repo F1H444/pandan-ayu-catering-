@@ -171,15 +171,8 @@ export default function MenuClient({ categories }: { categories: MenuCategory[] 
           <div className="lightbox" onClick={() => setSelectedImage(null)} role="dialog" aria-modal="true">
             <button className="lightbox__close" aria-label="Tutup gambar">×</button>
             <div className="lightbox__content" onClick={(e) => e.stopPropagation()}>
-              <Image 
-                src={selectedImage} 
-                alt="Perbesar Gambar Brosur" 
-                width={1000} 
-                height={1414} 
-                style={{ width: 'auto', height: '90vh', maxWidth: '100%', objectFit: 'contain' }} 
-                className="lightbox__img" 
-                unoptimized 
-              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={selectedImage} alt="Perbesar Gambar Brosur" className="lightbox__img" />
             </div>
           </div>
         )}
