@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://pandanayucatering.vercel.app/sitemap.xml',
-    host: 'https://pandanayucatering.vercel.app',
+    sitemap: 'https://pandan-ayu-catering.vercel.app/sitemap.xml',
+    host: 'https://pandan-ayu-catering.vercel.app',
   };
 }
