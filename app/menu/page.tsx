@@ -1,6 +1,29 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import MenuClient from './MenuClient';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Daftar Menu & Harga Catering',
+  description: 'Daftar lengkap harga dan menu Pandan Ayu Catering Sidoarjo. Nasi kotak mulai dari 24rb. Tersedia paket prasmanan, tumpeng, snack box, dan aqiqah.',
+  keywords: [
+    'harga catering sidoarjo',
+    'menu nasi kotak sidoarjo',
+    'harga prasmanan sidoarjo',
+    'menu catering pernikahan',
+    'harga nasi box sidoarjo',
+    'katering murah sidoarjo'
+  ],
+  openGraph: {
+    title: 'Daftar Menu & Harga | Pandan Ayu Catering',
+    description: 'Cek daftar lengkap harga dan menu catering untuk acaramu di Sidoarjo. Nasi kotak mulai dari 24rb.',
+    url: 'https://pandan-ayu-catering.vercel.app/menu',
+  },
+  alternates: {
+    canonical: 'https://pandan-ayu-catering.vercel.app/menu',
+  }
+};
+
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0; // Matikan cache agar selalu realtime mengikuti Google Drive

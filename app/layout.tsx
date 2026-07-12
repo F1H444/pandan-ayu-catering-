@@ -16,7 +16,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pandanayucatering.vercel.app"),
+  metadataBase: new URL("https://pandan-ayu-catering.vercel.app"),
   title: {
     default: "Pandan Ayu Catering – Catering Nasi Box & Prasmanan Sidoarjo",
     template: "%s | Pandan Ayu Catering",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://pandanayucatering.vercel.app",
+    url: "https://pandan-ayu-catering.vercel.app",
     siteName: "Pandan Ayu Catering",
     title: "Pandan Ayu Catering – Catering Nasi Box & Prasmanan Sidoarjo",
     description:
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://pandanayucatering.vercel.app",
+    canonical: "https://pandan-ayu-catering.vercel.app",
   },
   category: "food",
 };
@@ -90,7 +90,7 @@ export default function RootLayout({
     name: "Pandan Ayu Catering",
     description:
       "Catering nasi box, nasi kotak, dan prasmanan autentik Jawa di Sidoarjo",
-    url: "https://pandanayucatering.vercel.app",
+    url: "https://pandan-ayu-catering.vercel.app",
     telephone: "+6282232172646",
     address: {
       "@type": "PostalAddress",
@@ -121,7 +121,7 @@ export default function RootLayout({
     },
     servesCuisine: ["Indonesian", "Javanese"],
     priceRange: "$$",
-    hasMenu: "https://pandanayucatering.vercel.app/menu",
+    hasMenu: "https://pandan-ayu-catering.vercel.app/menu",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+6282232172646",
