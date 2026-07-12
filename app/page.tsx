@@ -545,7 +545,6 @@ function MenuPreview() {
     { id: 'prasmanan', t: 'Prasmanan', d: 'Layanan prasmanan lengkap untuk hajatan rumah & acara kantor.' },
     { id: 'wedding', t: 'Paket Wedding', d: 'Pilihan katering elegan nan mewah untuk resepsi pernikahan impian.' },
     { id: 'gubugan', t: 'Gubugan', d: 'Aneka pondokan gubugan sedap yang akan melengkapi acaramu.' },
-    { id: 'nasi-tampah', t: 'Nasi Tampah', d: 'Sajian kebersamaan ala tradisional dalam tampah yang hangat.' },
     { id: 'simple-box', t: 'Simple Box', d: 'Pilihan boks hemat dan praktis untuk kebutuhan serba cepat.' },
   ];
 

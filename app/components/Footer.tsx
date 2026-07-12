@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -73,7 +75,7 @@ export default function Footer() {
             </Link>
 
             <p className="footer__desc">
-              Bikin acaramu makin berkesan dengan sajian lezat dan pelayanan hangat dari kami. Spesialis catering Sidoarjo sejak 2014.
+              Bikin acaramu makin berkesan dengan sajian lezat dan pelayanan hangat dari kami. Spesialis catering Sidoarjo sejak 2018.
             </p>
 
             <div className="footer__socials" aria-label="Ikuti kami di media sosial">
@@ -139,7 +141,7 @@ export default function Footer() {
                   <circle cx="12" cy="12" r="10"/>
                   <polyline points="12 6 12 12 16 14"/>
                 </svg>
-                <span>Setiap Hari · 10.00 – 17.00 WIB</span>
+                <span>Setiap Hari · Buka jam 08.00 - 16.00 WIB</span>
               </div>
             </address>
           </div>
