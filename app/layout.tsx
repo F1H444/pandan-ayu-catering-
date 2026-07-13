@@ -34,10 +34,21 @@ export const metadata: Metadata = {
     "pandan ayu catering",
     "catering jawa timur",
     "catering hajatan sidoarjo",
+    "pesan nasi kotak sidoarjo",
+    "rekomendasi catering sidoarjo",
+    "catering harian sidoarjo",
+    "catering enak di sidoarjo",
+    "tumpeng sidoarjo",
+    "catering tumpeng sidoarjo",
   ],
   authors: [{ name: "Pandan Ayu Catering" }],
   creator: "Pandan Ayu Catering",
   publisher: "Pandan Ayu Catering",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   robots: {
     index: true,
     follow: true,
@@ -56,10 +67,10 @@ export const metadata: Metadata = {
     siteName: "Pandan Ayu Catering",
     title: "Pandan Ayu Catering – Catering Nasi Box & Prasmanan Sidoarjo",
     description:
-      "Catering autentik Jawa untuk acara pernikahan, hajatan, dan kantor di Sidoarjo. Pesan via WhatsApp!",
+      "Catering autentik Jawa untuk acara pernikahan, hajatan, dan kantor di Sidoarjo. Harga bersahabat, rasa nikmat. Pesan via WhatsApp!",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/hero.jpg",
         width: 1200,
         height: 630,
         alt: "Pandan Ayu Catering - Nasi Box & Prasmanan Sidoarjo",
@@ -71,7 +82,7 @@ export const metadata: Metadata = {
     title: "Pandan Ayu Catering – Catering Nasi Box Sidoarjo",
     description:
       "Catering autentik Jawa untuk hajatan & acara di Sidoarjo. Pesan via WhatsApp!",
-    images: ["/og-image.jpg"],
+    images: ["/hero.jpg"],
   },
   alternates: {
     canonical: "https://pandan-ayu-catering.vercel.app",
@@ -88,8 +99,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "FoodEstablishment",
     name: "Pandan Ayu Catering",
+    image: "https://pandan-ayu-catering.vercel.app/hero.jpg",
     description:
-      "Catering nasi box, nasi kotak, dan prasmanan autentik Jawa di Sidoarjo",
+      "Catering nasi box, nasi kotak, dan prasmanan autentik Jawa di Sidoarjo. Harga bersahabat, rasa nikmat dan higienis.",
     url: "https://pandan-ayu-catering.vercel.app",
     telephone: "+6282232172646",
     address: {
