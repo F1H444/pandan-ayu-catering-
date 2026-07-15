@@ -25,6 +25,8 @@ export const metadata: Metadata = {
     "Pandan Ayu Catering menyediakan nasi box, nasi kotak, dan prasmanan dengan cita rasa autentik Jawa. Melayani acara pernikahan, hajatan, arisan, dan kantor di Sidoarjo dan sekitarnya. Pesan langsung via WhatsApp!",
   keywords: [
     "catering sidoarjo",
+    "catering sidoarjo murah",
+    "catering sidoarjo enak",
     "nasi box sidoarjo",
     "nasi kotak sidoarjo",
     "catering pernikahan sidoarjo",
@@ -40,6 +42,9 @@ export const metadata: Metadata = {
     "catering enak di sidoarjo",
     "tumpeng sidoarjo",
     "catering tumpeng sidoarjo",
+    "aqiqah sidoarjo",
+    "snack box sidoarjo",
+    "catering khitanan sidoarjo"
   ],
   authors: [{ name: "Pandan Ayu Catering" }],
   creator: "Pandan Ayu Catering",
@@ -52,6 +57,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -59,6 +65,10 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  verification: {
+    google: "ADD_YOUR_GOOGLE_SITE_VERIFICATION_CODE", // Bisa diganti nanti
+    yandex: "ADD_YOUR_YANDEX_VERIFICATION_CODE", // Bisa diganti nanti
   },
   openGraph: {
     type: "website",

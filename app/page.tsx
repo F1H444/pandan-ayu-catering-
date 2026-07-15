@@ -44,7 +44,7 @@ function Hero() {
           </div>
 
           <h1 className="hero__h1 hero-anim">
-            Sajian Istimewa<br />
+            Catering Sidoarjo Terbaik<br />
             <em>untuk Hari Bahagiamu</em>
           </h1>
 
@@ -291,7 +291,7 @@ function About() {
           <div className="about__text">
             <span className="sec-label reveal">Kenalan Yuk!</span>
             <h2 className="about__title reveal d2">
-              Dimasak Penuh Cinta,<br/>Disajikan Sepenuh Hati
+              Catering Enak di Sidoarjo,<br/>Disajikan Sepenuh Hati
             </h2>
             <p className="reveal d2">
               Di Pandan Ayu Catering, kami percaya bahwa makanan enak bisa bikin suasana acara jadi lebih hangat dan bahagia. Itulah kenapa kami selalu totalitas meracik bumbu khas Jawa andalan kami.
