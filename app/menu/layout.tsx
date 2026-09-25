@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: 'Menu Pandan Ayu Catering – Nasi Box & Sambal Sidoarjo',
     description:
       '20+ menu nasi box autentik Jawa. Nasi Putih, Nasi Liwet, Sambal Terasi, Sambal Geprek, dan banyak lagi. Pesan via WhatsApp!',
-    url: 'https://pandanayucatering.vercel.app/menu',
+    url: 'https://www.pandanayucatering.biz.id/menu',
   },
   alternates: {
-    canonical: 'https://pandanayucatering.vercel.app/menu',
+    canonical: 'https://www.pandanayucatering.biz.id/menu',
   },
 };
 

@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Daftar Menu & Harga | Pandan Ayu Catering',
     description: 'Cek daftar lengkap harga dan menu catering untuk acaramu di Sidoarjo. Nasi kotak mulai dari 24rb.',
-    url: 'https://pandan-ayu-catering.vercel.app/menu',
+    url: 'https://www.pandanayucatering.biz.id/menu',
   },
   alternates: {
-    canonical: 'https://pandan-ayu-catering.vercel.app/menu',
+    canonical: 'https://www.pandanayucatering.biz.id/menu',
   }
 };
 

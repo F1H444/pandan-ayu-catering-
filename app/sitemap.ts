@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://pandan-ayu-catering.vercel.app';
+  const baseUrl = 'https://www.pandanayucatering.biz.id';
 
   return [
     {

@@ -7,7 +7,7 @@
 
 **Pandan Ayu Catering** adalah sebuah website profil bisnis (Company Profile / Landing Page) modern yang dibangun khusus untuk layanan katering yang berbasis di Sidoarjo, Jawa. Website ini dirancang untuk mempermudah calon pelanggan melihat daftar menu, keunggulan, serta langsung melakukan pemesanan melalui integrasi WhatsApp.
 
-🔗 **Live Demo:** [pandanayucatering.vercel.app](https://pandanayucatering.vercel.app)
+🔗 **Website:** [www.pandanayucatering.biz.id](https://www.pandanayucatering.biz.id)
 
 ---
 
